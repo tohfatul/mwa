@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "name": "day02_express",
+  "version": "1.0.0",
+  "main": "day02.js",
+  "devDependencies": {},
+  "scripts": {
+    "start": "node day02.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tohfatul",
+  "license": "ISC",
+  "description": ""
+}
