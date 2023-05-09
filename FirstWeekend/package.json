@@ -1,0 +1,19 @@
+{
+  "name": "firstweekend",
+  "version": "1.0.0",
+  "description": "Personal Hobby Project (PHP)",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tohfatul",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "mocha": "^10.2.0"
+  }
+}
