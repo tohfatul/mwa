@@ -5,7 +5,7 @@ const travelsController = require("../controllers/travelsController");
 router.route("/travels")
 .get(travelsController.getAll)
 
-router.route("/travels:travelId")
+router.route("/travels/:travelId")
 .get(travelsController.getOne)
 .post(travelsController.addOne)
 .put(travelsController.fullUpdateOne)
