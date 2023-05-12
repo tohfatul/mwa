@@ -47,20 +47,103 @@ const getOne = function(req, res){
     });
 }
 const addOne = function(req, res){
-    console.log("JSON Post Req Received");
-    res.status(200).send({"Key": "travels"});
+    console.log("AddOne Travel Req Received");
+    const newTravel = {
+        "location": req.body.location,
+        "country": req.body.country,
+        "photos": req.body.photos
+    }
+    travel.create(newTravel, function(err, travel){
+        const response = {"status": 201, message: travel};
+        if(err){
+            console.log("error creating travel");
+            response.status=500;
+            response.message=err;
+        }
+        res.status(response.status).json(response.message);
+    });
 }
+
+const _updateOne = function(req, res, updateTravelCallBack){
+    console.log("update one travel controller");
+    const travelId = req.params.travelId;
+    travel.findById(travelId).exec(function(err, travel){
+        const response = {"status": 204, "message": travel};
+        if(err){
+            console.log("error finding travel");
+            response.status=500;
+            response.message=err;
+        } else if(!travel){
+            console.log("travel id not found");
+            response.status=404;
+            response.message={"message": "Travel Id not found"};
+        }
+        if(response.status != 204){
+            res.status(response.status).json(response.message);
+        }else{
+            updateTravelCallBack(req, res, travel, response)
+        }
+    });
+}
+
 const fullUpdateOne = function(req, res){
     console.log("JSON fullUpdate Req Received");
-    res.status(200).send({"Key": "travels"});
+    const travelUpdate = function(req, res, travel, response){
+        travel.location=req.body.location;
+        travel.country = req.body.country;
+        travel.photos = req.body.photos;
+        travel.save(function(err, updatedTravel){
+            if(err){
+                response.status = 500;
+                response.message = err;
+            }
+            response.status = 200;
+            response.message = updatedTravel;
+            res.status(response.status).json(response.message);
+        });
+    }
+    _updateOne(req, res, travelUpdate);
 }
+
 const partialUpdateOne = function(req, res){
-    console.log("JSON partial Req Received");
-    res.status(200).send({"Key": "travels"});
+    console.log("JSON partial update Req Received");
+    
+    const travelUpdate = function (req, res, travel, response){
+        if(req.body.location.name){ travel.location.name = req.body.location.name };
+        if(req.body.location.coordinates){ travel.location.coordinates = req.body.location.coordinates };
+        if(req.body.country){travel.country = req.body.country};
+        if(req.body.photos){travel.photos = req.body.photos};
+
+        travel.save(function(err, updatedTravel){
+            if(err){
+                response.status = 500;
+                response.message = err;
+            }
+            response.status = 200;
+            response.message = updatedTravel;
+            res.status(response.status).json(response.message);
+        });
+    }
+
+    _updateOne(req, res, travelUpdate);
+
 }
 const deleteOne = function(req, res){
     console.log("JSON delete Req Received");
-    res.status(200).send({"Key": "travels"});
+    const travelId = req.params.travelId;
+    travel.findByIdAndDelete(travelId).exec(function(err, deletedTravel){
+        const response = {"status": 202, "message": deletedTravel}
+        if(err){
+            console.log("error finding game");
+            response.status = 500;
+            response.message = err;
+        }else if(!deletedTravel){
+            console.log("travel id not found");
+            response.status = 404;
+            response.message = "travel id not found"
+        };
+        res.status(response.status).json(response.message);
+    });
 }
 module.exports={
     getAll: getAll,

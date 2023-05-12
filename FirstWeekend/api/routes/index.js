@@ -6,6 +6,7 @@ const photoController = require("../controllers/photoController");
 
 router.route("/travels")
 .get(travelsController.getAll)
+.post(travelsController.addOne);
 
 router.route("/travels/:travelId")
 .get(travelsController.getOne)
