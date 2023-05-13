@@ -10,7 +10,6 @@ router.route("/travels")
 
 router.route("/travels/:travelId")
 .get(travelsController.getOne)
-.post(travelsController.addOne)
 .put(travelsController.fullUpdateOne)
 .patch(travelsController.partialUpdateOne)
 .delete(travelsController.deleteOne);
@@ -19,6 +18,12 @@ router.route("/travels/:travelId/location")
 .get(locationController.getOne);
 
 router.route("/travels/:travelId/photos")
-.get(photoController.getAll);
+.get(photoController.getAll)
+.post(photoController.addOne);
+
+
+router.route("/travels/:travelId/photos/:photoId")
+.get(photoController.getOne);
+
 
 module.exports = router;
