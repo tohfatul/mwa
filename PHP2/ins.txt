@@ -1,3 +1,146 @@
+
+steps (backend):
+1. create a folder named PT1
+2. select the folder in vs code
+3. create a app.js file
+4. create folders-
+    1. public
+        a file named index.html
+    2. api
+        2.1 folder routes
+            a file named index.js
+        2.1 folder controllers
+            other file like travelController.js
+        2.3 folder data
+            a file called db.js
+            other model file (like travel-model.js)
+5. run command npm init
+    - open package.json file and add "start": "node app.js", in scripts section
+6. run command npm install dotenv
+7. create a file .env
+8. run command npm install express
+9. run command npm install mongoose
+10. open package.json file and downgrade monoose to 6.1.1
+11. run command npm update
+12. open file app.js and edit as app.js
+13. open routes->index.js and edit
+14. open data->db.js and edit. open data->'travelModel.js' and edit
+15. open controllers->'travelController.js' and edit
+16. edit .env file for DB_URL = "mongodb://0.0.0.0:27017/phpDB"
+
+
+app.js
+=======
+require ("dotenv").config();
+require("./api/data/db");
+const express = require("express");
+const path = require("path");
+const routes=require("./api/routes");
+const app = express();
+
+// app.use(function(req, res, next){
+//     console.log(req.method, req.url);
+//     next();
+// });
+
+app.use(express.static(path.join(__dirname, process.env.PUBLIC_FOLDER)));
+app.use(express.json());
+app.use(express.urlencoded({extended:true}));
+app.use("/api", routes);
+const server = app.listen(process.env.SERVER_PORT, function(){
+    console.log("listening to port ", process.env.SERVER_PORT);
+});
+
+
+routes/index.js
+===============
+const express = require("express");
+const router = express.Router();
+const travelController = require("../controllers/travelController");
+
+router.route("/travels")
+.get(travelController.getAll)
+.post(travelController.addOne);
+
+router.route("/travels/:travelId")
+.get(travelsController.getOne)
+.put(travelsController.fullUpdateOne)
+.patch(travelsController.partialUpdateOne)
+.delete(travelsController.deleteOne);
+
+module.exports = router;
+
+
+data/db.js
+==========
+const mongoose = require("mongoose");
+require("./travelModel");
+mongoose.connect(process.env.DB_URL, {useNewUrlParser: true, useUnifiedTopology:true});
+
+data/travelModel.js
+=======================
+const mongoose = require("mongoose");
+
+const locationSchema = mongoose.Schema({
+    "name":{
+        type: String,
+        required: true
+    },
+    "coordinates": {
+        type: [Number],
+        index: "2dsphare"
+    }
+});
+
+const photoSchema = mongoose.Schema({
+    "title": {
+        type: String,
+        required: true
+    },
+    "url":{
+        type: String,
+        required: true
+    }
+})
+const travelSchema =mongoose.Schema({
+    "location": locationSchema,
+    "country": {
+        type: String,
+        required: true
+    },
+    "photos": [photoSchema]
+});
+
+mongoose.model(process.env.TRAVEL_MODEL, travelSchema, "travels2");
+
+controllers/travelController.js
+===============================
+const mongoose = require("mongoose");
+const travel = mongoose.model(process.env.TRAVEL_MODEL);
+const getAll = function(req, res){
+    console.log("Get all games");
+    res.status(200).json({"message": "All Games"});
+}
+const addOne = function(req, res){
+    console.log("add one post req received");
+
+    const newTravel = {
+        "location": req.body.location,
+        "country": req.body.country,
+        "photos": req.body.photos
+    }
+    travel.create(newTravel, function(req, travel){
+        res.status(201).json(travel);
+    });
+    //res.status(201).json(req.body);
+}
+module.exports={
+    getAll: getAll,
+    addOne: addOne
+}
+
+
+
 for post req:
 npm i body-parser
 
@@ -9,9 +152,30 @@ app.use(bp.json());
 app.use(bp.urlencoded({ extended: true }));
 
 
+> first start with npm init
+after npm init, open package.json file and add in script section-
+ "start": "node app.js",
+ example;
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+
+> npm start
+
 installs:
 
 1. npm install express
 2. npm install dotenv
 3. npm install mongoose (downgrade to 6.1.1 from 7.1.1 in package.json and use command 'npm update' to use call back)
 
+(for angular)
+open another cd terminal
+1. npm install --g @angular
+
+while staying in root folder (like PHP1)
+> ng new angular-app --skip-git=true --skip-tests=true  --directory public\angular-app --defaults=true
+> cd public
+>cd angular-app
+>npm start
+now browse to localhost:4200
