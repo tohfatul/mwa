@@ -1,0 +1,17 @@
+{
+  "name": "php2",
+  "version": "1.0.0",
+  "description": "preparing for the exam",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tohfatul",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^6.1.1"
+  }
+}

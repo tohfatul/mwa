@@ -1,0 +1,17 @@
+for post req:
+npm i body-parser
+
+in index.json file
+const bp = require('body-parser')
+
+then before route path in index.js
+app.use(bp.json());
+app.use(bp.urlencoded({ extended: true }));
+
+
+installs:
+
+1. npm install express
+2. npm install dotenv
+3. npm install mongoose (downgrade to 6.1.1 from 7.1.1 in package.json and use command 'npm update' to use call back)
+
