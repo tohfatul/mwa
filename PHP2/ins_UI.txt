@@ -6,3 +6,24 @@ steps:
 5. cd angular-app
 6. npm start
 7. test if it is running by browsing localhost:4200
+8. > ng generate component navigation
+9. > ng generate service gamesData
+10. error page - in the app.component file-
+    {
+        path:"**",
+        component:ErrorPageComponent
+      }
+11. in app.module -> in imports section --> add FormsModule,
+        imports: [
+            BrowserModule,
+            HttpClientModule,
+            FormsModule,
+            RouterModule.forRoot([])]
+
+
+app.component.test
+==================
+<app-navigation></app-navigation>
+<router-outlet></router-outlet>
+<app-footer></app-footer>
+

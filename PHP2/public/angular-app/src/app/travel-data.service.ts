@@ -23,6 +23,11 @@ export class TravelDataService {
     return this.http.get<Travel>(this.baseUrl+"travels/"+travelId).pipe(map(respnse=>respnse as Travel));
   }
 
+  public addTravel(travelObj:any): Observable<any>{
+    const headers = { 'content-type': 'application/json'}  
+    const body=JSON.stringify(travelObj);
+    return this.http.post(this.baseUrl + "travels", body, {'headers':headers})
+  }
   public deleteTravel(travelId:string){
     return this.http.delete(this.baseUrl+"travels/"+travelId).toPromise();
   }

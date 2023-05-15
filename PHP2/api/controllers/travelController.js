@@ -25,6 +25,7 @@ const addOne = function(req, res){
         "photos": req.body.photos
     }
     travel.create(newTravel, function(req, travel){
+        console.log(newTravel);
         res.status(201).json(travel);
     });
 }

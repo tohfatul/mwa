@@ -1,0 +1,10 @@
+export:
+> mongoexport --db phpDB --collection travels2 --out "D:\travels2.json"
+> mongodump --db phpDB --collection travels2 --out D:\travels2
+> mongodump --db phpDB --collection travels2 --out D:\travels2 --gzip
+> mongoexport --db phpDB --collection travels2 --out D:\travels2.json --jsonArray --pretty
+
+import
+> mongoimport --db phpDB2 --collection travels2 --jsonArray D:\travels2.json
+> mongorestore --db phpDB3 --gzip D:\data\phpDB (folder structure was D:\data\phpDB\bson gzip files)
+> mongorestore --db phpDB3 --gzip D:\dump\ (file was- travels.bson.gz)

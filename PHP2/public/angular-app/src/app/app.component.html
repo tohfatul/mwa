@@ -12,6 +12,21 @@
 {{123.456789 | number:"1.0-5"}}
 {{123.456789 | number:"4.10-10"}}
 
+
+<div class="form">
+  <form (ngSubmit)="onSubmit(myForm)" #myForm="ngForm" name="details">
+    <div ngModelGroup="travelDetails">
+      <label for="txtLocationName">
+        <input type="text" id="txtLocationName" name="location" ngModel>
+      </label>
+      <label for="txtCountry">
+        <input type="text" id="txtCountry" name="country" ngModel>
+      </label>
+    </div>
+    
+    <input type="submit" id="btnSubmit" name="btnSubmit" value="Submit"/>
+  </form>
+</div>
 <hr/>
 <app-navigation></app-navigation>
 <router-outlet></router-outlet>
