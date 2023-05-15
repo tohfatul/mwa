@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'angular-app';
+  title = 'angular-appw';
+
+  people:String []= ["Jack", "John", "Jill"];
+
+  onClickBtn (){
+    this.title = "button clicked";
+  }
+
+  today = new Date();
 }

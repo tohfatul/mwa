@@ -28,6 +28,12 @@ steps (backend):
 15. open controllers->'travelController.js' and edit
 16. edit .env file for DB_URL = "mongodb://0.0.0.0:27017/phpDB"
 
+.env
+=====
+SERVER_PORT = 3000
+PUBLIC_FOLDER = "public"
+DB_URL = "mongodb://0.0.0.0:27017/phpDB"
+TRAVEL_MODEL = "Travel"
 
 app.js
 =======
@@ -140,7 +146,7 @@ module.exports={
 }
 
 
-
+=========================x others x============================
 for post req:
 npm i body-parser
 

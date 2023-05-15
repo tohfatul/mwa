@@ -1,7 +1,8 @@
 steps:
-
 1. open new cmd terminal
 2. npm install --g @angular/cli
 3. ng new angular-app --skip-git=true --skip-tests=true --directory public\angular-app --defaults=true
-4. npm start
-5. test if it is running by browsing localhost:4200
+4. cd public
+5. cd angular-app
+6. npm start
+7. test if it is running by browsing localhost:4200
