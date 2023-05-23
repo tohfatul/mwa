@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const travelController = require("../controllers/travelController");
+const userController = require("../data/userController");
 
 router.route("/json")
 .get(function(req, res){
@@ -15,5 +16,7 @@ router.route("/travels/:travelId")
 .get(travelController.getOne)
 .delete(travelController.deleteOne);
 
+router.route("/users")
+.post(userController.addOne);
 
 module.exports = router;
