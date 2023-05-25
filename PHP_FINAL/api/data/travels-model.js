@@ -27,5 +27,5 @@ const travelSchema = mongoose.Schema({
     photos: [photoSchema]
 });
 
-mongoose.model(process.env.TRAVEL_MODEL, travelSchema, "travels");
-mongoose.model(process.env.PHOTO_MODEL, photoSchema, "photos");
+mongoose.model(process.env.TRAVEL_MODEL, travelSchema, process.env.TRAVEL_COLLECTION);
+//mongoose.model(process.env.PHOTO_MODEL, photoSchema, "photos");

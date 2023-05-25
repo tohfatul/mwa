@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
+            <form>
+                <div class="form-group">
+                    <label for="fullname">Full Name
+                        
+                    </label>
+                    <input type="text" id="fullname" name="fullname" class="form-control" [(ngModel)]="user.fullname">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email
+                        
+                    </label>
+                    <input type="email" id="email" name="email" class="form-control" [(ngModel)]="user.email">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password
+                        
+                    </label>
+                    <input type="password" id="password" name="password" class="form-control" [(ngModel)]="user.password">
+                </div>
+                
+                
+                <button class="btn btn-primary" (click)="onSaveClick()" >Save</button>
+            </form>
+            
+        </div>
+        <div class="col-sm-2"></div>
+    </div>
+</div>

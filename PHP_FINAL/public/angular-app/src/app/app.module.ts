@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule} from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
@@ -12,6 +12,9 @@ import { ErrorPageComponent } from './error-page/error-page.component';
 import { TravelsComponent } from './travels/travels.component';
 import { TravelComponent } from './travel/travel.component';
 import { EditTravelComponent } from './edit-travel/edit-travel.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { InterceptorService } from './interceptor.service';
 
 
 
@@ -23,7 +26,9 @@ import { EditTravelComponent } from './edit-travel/edit-travel.component';
     HomeComponent,
     TravelsComponent,
     TravelComponent,
-    EditTravelComponent
+    EditTravelComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -47,11 +52,18 @@ import { EditTravelComponent } from './edit-travel/edit-travel.component';
         component:EditTravelComponent
       },
       {
+        path:"signup",
+        component:RegisterComponent
+      },
+      {
+        path:"login",
+        component:LoginComponent
+      },
+      {
         path:"**",
         component:ErrorPageComponent
       }
     ])
-
   ],
   providers: [],
   bootstrap: [AppComponent]

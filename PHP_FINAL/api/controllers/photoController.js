@@ -1,7 +1,7 @@
 const { ObjectId } = require("mongodb");
 const mongoose = require("mongoose");
 const travel = mongoose.model(process.env.TRAVEL_MODEL);
-const photo = mongoose.model(process.env.PHOTO_MODEL);
+//const photo = mongoose.model(process.env.PHOTO_MODEL);
 
 const getAll = function(req, res){
     console.log("photo controller getAll");

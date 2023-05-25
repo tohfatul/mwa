@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Travel } from '../travel-model';
 import { TravelDataService } from '../travel-data.service';
 
@@ -7,7 +7,7 @@ import { TravelDataService } from '../travel-data.service';
   templateUrl: './edit-travel.component.html',
   styleUrls: ['./edit-travel.component.css']
 })
-export class EditTravelComponent {
+export class EditTravelComponent implements OnInit{
 
   travel!: Travel;
   travelId!: String;
@@ -20,7 +20,7 @@ export class EditTravelComponent {
   loadData():void{
     this.travelId = this.travelService.getMessage();
     this.travelService.getTravel(this.travelId).subscribe({
-      next: (travel)=> {this.travel = travel, console.log(this.travel);},
+      next: (travel)=> {this.travel = travel, console.log(travel);},
       error: (error)=>{console.log(error);}
     });
   }

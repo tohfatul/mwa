@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const travelsController = require("../controllers/travelsController");
+const userController = require("../controllers/userController");
 const locationController = require("../controllers/locationController");
 const photoController = require("../controllers/photoController");
 
@@ -25,5 +26,10 @@ router.route("/travels/:travelId/photos")
 router.route("/travels/:travelId/photos/:photoId")
 .get(photoController.getOne);
 
+router.route("/users")
+.post(userController.addOne);
+
+router.route("/users/login")
+.post(userController.login);
 
 module.exports = router;
