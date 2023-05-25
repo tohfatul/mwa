@@ -1,0 +1,41 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
+            <h4>Travel Detail:</h4>
+
+            <table class="table table-bordered">
+                <tbody> 
+                    <tr>
+                        <td> <strong>Location:</strong> </td>
+                        <td>
+                            Name: {{travel.location.name}}
+                            <br/>
+                            Coordinates: {{travel.location.coordinates}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> <strong>Country:</strong> </td>
+                        <td>
+                            {{travel.country}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> <strong>Photos:</strong> </td>
+                        <td>
+                            <div *ngFor="let photo of travel.photos">
+                                Title: {{photo.title}}
+                                <br/>
+                                Url: {{photo.url}}
+                              </div>
+                        </td>
+                    </tr>
+                </tbody>
+               
+            </table>
+            
+        </div>
+        <div class="col-sm-2"></div>
+    </div>
+</div>

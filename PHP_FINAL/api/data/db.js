@@ -1,6 +1,7 @@
 require("./travels-model");
 const mongoose= require("mongoose");
 mongoose.connect(process.env.DB_URL);
+
 mongoose.connection.on("connected", function() {
     console.log("Connected to", process.env.DB_NAME);
 });
@@ -19,6 +20,7 @@ process.on("SIGINT", function() {
         process.exit(0);
     });    
 });
+
 process.on("SIGTERM", function() {
     mongoose.connection.close(function() {
         console.log(process.env.SIGTERM_MESSAGE);

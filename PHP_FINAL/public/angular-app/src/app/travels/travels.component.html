@@ -1,0 +1,37 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
+            <h4>Travel List:</h4>
+            <table class="table table-condensed table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Location</th>
+                        <th>Country</th>
+                        <th>&nbsp;</th>
+                        <th>&nbsp;</th>
+                        <th>&nbsp;</th>
+                    </tr>
+                </thead>               
+                <tbody> 
+                    <tr *ngFor="let travel of travels">
+                        <td>{{travel.location.name}}</td>
+                        <td>{{travel.country}}</td>
+                        <td class="text-center">
+                            <button (click)="onDetailClick(travel._id)" class="btn btn-primary btn-xs">Detail</button>
+                        </td>
+                        <td class="text-center">
+                            <button (click)="onEditClick(travel._id)" class="btn btn-warning btn-xs">Edit</button>
+                        </td>
+                        <td class="text-center">
+                            <button class="btn btn-danger btn-xs">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-sm-2"></div>
+    </div>
+</div>
+

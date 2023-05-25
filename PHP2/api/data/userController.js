@@ -1,5 +1,4 @@
 const bcrypt = require("bcrypt");
-const { reject } = require("bcrypt/promises");
 const mongoose = require("mongoose");
 const userModel = mongoose.model(process.env.USER_MODEL);
 

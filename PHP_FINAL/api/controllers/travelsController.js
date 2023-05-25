@@ -12,7 +12,6 @@ const getAll = function(req, res){
     let offset = process.env.DEFAULT_FIND_OFFSET;
     let count = process.env.DEFAULT_FIND_COUNT;
     
-    
     if(req.query && req.query.offset){
         offset = parseInt(req.query.offset, 10);
     }
@@ -27,7 +26,7 @@ const getAll = function(req, res){
         res.status(response.status).json(response.message);
     }
 
-    travel.find().skip(offset).limit(count).exec()
+    travel.find().skip(offset).limit(count)
     .then(travels=> response.message=travels)
     .catch(err=>{
         response.status = parseInt(process.env.API_SERVER_ERROR, 10);
@@ -40,7 +39,7 @@ const getOne = function(req, res){
     console.log("JSON GET_ONE Req Received");
     const travelId = req.params.travelId;
 
-    travel.findById(travelId).exec()
+    travel.findById(travelId)
     .then((travel)=>{
         if(!travel){
             response.status= parseInt(process.env.API_NOT_FOUND_ERROR, 10);

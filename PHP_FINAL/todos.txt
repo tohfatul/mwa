@@ -1,0 +1,2 @@
+promise in db.js
+photos to remove and add option in edit travels 
