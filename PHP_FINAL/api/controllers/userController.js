@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken');
 const mongoose = require("mongoose");
 const userModel = mongoose.model(process.env.USER_MODEL);
 
-const tokenSecret = "This is something secret";
+const tokenSecret = process.env.TOKEN_SECRET;
 
 const response = {
     status: 200,

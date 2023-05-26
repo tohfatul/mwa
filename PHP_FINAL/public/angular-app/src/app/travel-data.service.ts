@@ -38,10 +38,23 @@ export class TravelDataService {
     console.log("data is " + data);
     return this.http.post<any>(this.apiBaseUrl + "users", data, {"headers":this.headers})
   }
+  public updateTravel(travel:Travel): Observable<any>{
+    const data = {
+      "_id": travel._id,
+      "location": travel.location,
+      "country": travel.country,
+      "photos": travel.photos
+    }
+    return this.http.put<any>(this.apiBaseUrl + "travels/" + travel._id, data, {"headers":this.headers})
+  }
+  public deleteTravel(travelId:String):Observable<any>{
+    return this.http.delete<any>(this.apiBaseUrl + "travels/"+travelId, {"headers":this.headers})
+  }
   public login(email:String, password: String): Observable<any>{
     const credential = {"email": email, "password": password}
     return this.http.post<any>(this.apiBaseUrl + "users/login", credential, {"headers":this.headers})
   }
+  
   setMessage (data:String){
     this.message=data;
   }

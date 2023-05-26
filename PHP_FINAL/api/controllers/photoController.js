@@ -1,7 +1,6 @@
 const { ObjectId } = require("mongodb");
 const mongoose = require("mongoose");
 const travel = mongoose.model(process.env.TRAVEL_MODEL);
-//const photo = mongoose.model(process.env.PHOTO_MODEL);
 
 const getAll = function(req, res){
     console.log("photo controller getAll");
@@ -55,8 +54,6 @@ const addOne = function(req, res){
     travel.findById(travelId).exec(function(err, travel){
         if(!err){
             _addNewPhoto(req, res, newPhoto, travel);
-            //res.status(response.status).json(response.message);
-            
         }
     });
     

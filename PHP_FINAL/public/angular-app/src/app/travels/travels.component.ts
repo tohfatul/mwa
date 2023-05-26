@@ -37,4 +37,15 @@ export class TravelsComponent implements OnInit {
     this.travelService.setMessage(travelId);
     this._router.navigate(['travels/edit/'+ travelId]);
   }
+  onDeleteClick(travelId: String):void{
+    this.travelService.deleteTravel(travelId).subscribe({
+      next: ()=> {
+        this.loadData();
+      },
+      error: (error)=>{
+        alert("Delete failed");
+        console.log(error);
+      }
+    });
+  }
 }
