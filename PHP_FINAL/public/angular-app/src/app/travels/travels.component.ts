@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { Travel } from '../travel-model';
+import { Travel } from '../models/travel-model';
 import { TravelDataService } from '../travel-data.service';
 
 
@@ -12,12 +12,15 @@ import { TravelDataService } from '../travel-data.service';
 })
 export class TravelsComponent implements OnInit {
 
+  userInfo:any;
+
   travels!: Travel[];
   viewCount:number=5;
   offsetVal: number=0;
   constructor(private travelService:TravelDataService, private _router:Router){}
 
   ngOnInit():void{
+    this.userInfo = this.travelService.getUserLogin();
     this.loadData(); 
   }
   private fillTravels(travels: Travel[]) {
@@ -31,7 +34,7 @@ export class TravelsComponent implements OnInit {
   }
   onDetailClick(travelId: String):void{
     this.travelService.setMessage(travelId);
-    this._router.navigate(['travels/'+ travelId]);
+    this._router.navigate(['travels/detail/'+ travelId]);
   }
   onEditClick(travelId: String):void{
     this.travelService.setMessage(travelId);

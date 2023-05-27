@@ -6,7 +6,7 @@
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">Home</a></li>
         <li><a routerLink="" (click)="onTravelListClick()">Travel List</a></li>
-        <li *ngIf="userInfo.fullname"><a routerLink="">Add New Travel</a></li>
+        <li *ngIf="userInfo.fullname"><a routerLink="" (click)="onAddNewTravel()">Add New Travel</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li *ngIf="!userInfo.fullname"><a routerLink="" (click)="onSignupClick()"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>

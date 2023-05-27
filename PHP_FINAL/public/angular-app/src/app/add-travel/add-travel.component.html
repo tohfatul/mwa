@@ -1,0 +1,88 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+            <h4>Create Travel:</h4>
+            <form>
+                <div class="form-group">
+                    <label>Location Name</label>
+                    <input type="text" 
+                    id="travel.loction.name"
+                    name="travel.location.name"
+                    [(ngModel)]="location.name"
+                    class="form-control form-control-sm"/>
+                </div>
+                <div class="form-group">
+                    <label>Coordinates</label>
+                    <div class="form-inline">
+                        <input type="text" 
+                        id="longitude"
+                        name="longitude"
+                        placeholder="Longitude"
+                        [(ngModel)]="longitude"
+                        class="form-control form-control-sm"/> &nbsp;
+                        
+                        <input type="text" 
+                        id="latitude"
+                        name="latitude"
+                        placeholder="Latitude"
+                        [(ngModel)]="latitude"
+                        class="form-control form-control-sm"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Country</label>  
+                    <input type="text"
+                    id="travel.country"
+                    name="travel.country"
+                    [(ngModel)]="travel.country"
+                    class="form-control form-control-sm" />
+                </div>
+                <div class="form-group">
+                    <table class="table table-condensed table-bordered">
+                        <thead>
+                            <tr>
+                                <th width="30%">Title</th>
+                                <th width="60%">URL</th>
+                                <th width="10%" class="text-center">&nbsp;</th>
+                            </tr>
+                        </thead>
+                        <tr *ngFor="let photo of photos">
+                            <td>{{photo.title}}</td>
+                            <td>{{photo.url}}</td>
+                            <td class="text-danger text-center" (click)="onRemoveClick(photo)">
+                                <small style="cursor: pointer;">Remove</small>
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td>
+                                <input 
+                                type="text" 
+                                id="photo.title"
+                                name="photo.title"
+                                [(ngModel)]="photo.title"
+                                class="form-control input-sm">
+                            </td>
+                            <td>
+                                <input 
+                                type="text" 
+                                id="photo.url"
+                                name="photo.url"
+                                [(ngModel)]="photo.url"
+                                class="form-control input-sm">
+                            </td>
+                            <td class="text-primary text-center">
+                                <span style="cursor: pointer;" (click)="onAddClick()">Add</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary" (click)="onSaveClick()">Save</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+</div>

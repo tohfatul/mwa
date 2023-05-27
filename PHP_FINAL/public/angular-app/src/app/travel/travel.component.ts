@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Travel } from '../travel-model';
+import { Travel } from '../models/travel-model';
 import { Router } from '@angular/router';
 
 import { TravelDataService } from '../travel-data.service';

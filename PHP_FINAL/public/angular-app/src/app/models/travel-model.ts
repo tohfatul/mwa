@@ -1,17 +1,16 @@
+import { Photo } from "./photo-model";
+import { Location } from "./location-model";
 export class Travel {
     #_id!: String;
-    #location!: {
-        name: String,
-        coordinates: [number]
-    };
+    #location!: Location
     #country!: String;
-    #photos!: [{
-        "title": String,
-        "url": String
-    }];
-    
+    // #photos!: [{
+    //     "title": String,
+    //     "url": String
+    // }];
+    #photos!: Photo[];
     get _id() {return this.#_id;};
-    get location() {return {"name": this.#location.name, "coordinates": this.#location.coordinates};}
+    get location() {return this.#location;}
     get country() {return this.#country;}
     get photos() {return this.#photos;}
     

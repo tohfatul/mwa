@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { Travel } from '../travel-model';
+import { Travel } from '../models/travel-model';
 import { TravelDataService } from '../travel-data.service';
 
 

@@ -2,8 +2,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { Travel } from './travel-model';
-import { User } from './user-model';
+import { Travel } from './models/travel-model';
+import { User } from './models/user-model';
 
 @Injectable({
   providedIn: 'root'
@@ -50,9 +50,35 @@ export class TravelDataService {
   public deleteTravel(travelId:String):Observable<any>{
     return this.http.delete<any>(this.apiBaseUrl + "travels/"+travelId, {"headers":this.headers})
   }
+
   public login(email:String, password: String): Observable<any>{
     const credential = {"email": email, "password": password}
     return this.http.post<any>(this.apiBaseUrl + "users/login", credential, {"headers":this.headers})
+  }
+  public addTravel(travel:Travel): Observable<any> {
+    //const data = JSON.stringify(travel); // didn't work
+    console.log(travel);
+    // const data={
+    //   "location": travel.location,
+    //   "country": travel.country,
+    //   "photos": travel.photos
+    // }; didn't work
+
+    const data ={
+      "location": {
+        "name": travel.location.name,
+        "coordinates": travel.location.coordinates
+      },
+      "country": travel.country,
+      "photos":[{
+        "title": "default title",
+        "url": "default url"
+      },{
+        "title": "default title2",
+        "url": "default url2"
+      }]
+    }
+    return this.http.post<any>(this.apiBaseUrl + "travels", data, {"headers":this.headers})
   }
   
   setMessage (data:String){

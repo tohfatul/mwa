@@ -19,7 +19,6 @@ export class NavigationComponent implements OnInit{
   onTravelListClick ():void {
     this._router.navigate(['travels']);
   }
-
   onSignupClick():void{
     this._router.navigate(['signup'])
   }
@@ -28,5 +27,9 @@ export class NavigationComponent implements OnInit{
   }
   onLogoutClick():void{
     this.userInfo="";
+    this._router.navigate(['login']);
+  }
+  onAddNewTravel():void{
+    this._router.navigate(['travels/create']);
   }
 }

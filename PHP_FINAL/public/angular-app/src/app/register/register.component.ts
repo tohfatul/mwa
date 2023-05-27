@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { TravelDataService } from '../travel-data.service';
-import { User } from '../user-model';
+import { User } from '../models/user-model';
 
 
 @Component({

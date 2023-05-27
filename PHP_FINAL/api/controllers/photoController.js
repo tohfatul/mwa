@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const travel = mongoose.model(process.env.TRAVEL_MODEL);
 
 const getAll = function(req, res){
-    console.log("photo controller getAll");
+    console.log(process.env.API_PHOTO_GET_ALL_MESSAGE);
     let offset = process.env.DEFAULT_FIND_OFFSET;
     let count = process.env.DEFAULT_FIND_COUNT;
 
@@ -14,27 +14,26 @@ const getAll = function(req, res){
         offset = parseInt(req.query.offset, 10);
     }
     if(isNaN(offset) && isNaN(count)){
-        res.status(400).json({"message": "Query string offset and count should be numbers"});
+        res.status(process.env.API_BADREQUEST_ERROR).json({"message": process.env.API_OFFSET_COUNT_INVALID_NUMBER});
     }
     const travelId = req.params.travelId;
     travel.findById(travelId).select("photos").skip(offset).limit(count).exec(function(err, travel){
         if(err){
-            console.log("Error finding travels", err);
-            res.status(500).json(err);
+            console.log( err);
+            res.status(process.env.API_SERVER_ERROR).json(err);
         }else{
-            console.log("found photos", travel.photos, "for travel ", travel);
-            res.status(200).json(travel.photos);
+            
+            res.status(process.env.API_OK).json(travel.photos);
         }
     });
 }
 const getOne = function(req, res){
-    console.log("photo controller get one");
+    console.log(process.env.API_PHOTO_GET_ONE_MESSAGE);
     
     const travelId = req.params.travelId;
     const photoId = req.params.photoId;
     travel.findById(travelId).select("photos").exec(function(err, travel){
         if(err){
-            console.log("Error finding photo", err);
             res.status(500).json(err);
         }else{
             console.log(travel.photos.id(photoId));
@@ -43,7 +42,7 @@ const getOne = function(req, res){
     });
 }
 const addOne = function(req, res){
-    console.log("AddOne photo Req Received");
+    console.log(process.env.API_PHOTO_ADD_ONE_MESSAGE);
     const travelId = req.params.travelId;
 
     const newPhoto = {
@@ -64,8 +63,7 @@ const _addNewPhoto = function(req, res, newPhoto, selectedTravel){
     selectedTravel.save(travel, function(err, updatedTravel){
         const response = {"status": 201, message: updatedTravel};
         if(err){
-            console.log("error creating photo");
-            response.status=500;
+            response.status=process.env.API_SERVER_ERROR;
             response.message=err;
         }
         res.status(response.status).json(response.message);

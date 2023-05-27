@@ -15,6 +15,7 @@ import { EditTravelComponent } from './edit-travel/edit-travel.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { InterceptorService } from './interceptor.service';
+import { AddTravelComponent } from './add-travel/add-travel.component';
 
 
 
@@ -28,7 +29,8 @@ import { InterceptorService } from './interceptor.service';
     TravelComponent,
     EditTravelComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    AddTravelComponent
   ],
   imports: [
     BrowserModule,
@@ -44,12 +46,16 @@ import { InterceptorService } from './interceptor.service';
         component:TravelsComponent
       },
       {
-        path:"travels/:travelId",
+        path:"travels/detail/:travelId",
         component:TravelComponent
       },
       {
         path:"travels/edit/:travelId",
         component:EditTravelComponent
+      },
+      {
+        path:"travels/create",
+        component:AddTravelComponent
       },
       {
         path:"signup",

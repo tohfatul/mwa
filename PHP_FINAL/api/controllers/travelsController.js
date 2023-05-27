@@ -67,9 +67,10 @@ const addOne = function(req, res){
         "photos": req.body.photos
     }
     
+    console.log(req.body);
     travel.create(newTravel).then(travel=>{
         response.status = parseInt(process.env.API_CREATED, 10);
-        response.message = newTravel;
+        response.message = travel;
     })
     .catch(err=>{
         response.status = parseInt(process.env.API_SERVER_ERROR, 10);

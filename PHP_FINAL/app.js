@@ -19,5 +19,5 @@ app.use("/api", function(req, res, next) {
 app.use("/api", routes);
 
 const server = app.listen(process.env.SERVER_PORT, function(){
-    console.log("Listening to port " + server.address().port);
+    console.log(process.env.LISTENING_TO_MESSAGE + server.address().port);
 });

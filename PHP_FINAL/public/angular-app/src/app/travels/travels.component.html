@@ -22,7 +22,7 @@
                             <button (click)="onDetailClick(travel._id)" class="btn btn-primary btn-xs">Detail</button>
                         </td>
                         <td class="text-center">
-                            <button (click)="onEditClick(travel._id)" class="btn btn-warning btn-xs">Edit</button>
+                            <button [disabled]="!userInfo.fullname" (click)="onEditClick(travel._id)" class="btn btn-warning btn-xs">Edit</button>
                         </td>
                         <td class="text-center">
                             <button class="btn btn-danger btn-xs" (click)="onDeleteClick(travel._id)">Delete</button>
@@ -30,6 +30,9 @@
                     </tr>
                 </tbody>
             </table>
+            <button [disabled]="true">Move Previous</button>
+            &nbsp;
+            <button [disabled]="true">Move Next</button>
         </div>
         <div class="col-sm-2"></div>
     </div>

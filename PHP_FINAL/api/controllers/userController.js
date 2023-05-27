@@ -8,7 +8,7 @@ const userModel = mongoose.model(process.env.USER_MODEL);
 const tokenSecret = process.env.TOKEN_SECRET;
 
 const response = {
-    status: 200,
+    status: process.env.API_OK,
     message: ""
 }
 
@@ -75,7 +75,7 @@ const _isPasswordMatched = function(req, user){
                 const token = jwt.sign({ "email": user.email }, tokenSecret, { expiresIn: '1h' });
                 resolve({"fullname": user.fullname, "token": token});
             }else{
-                reject("Invalid credentials");
+                reject(process.env.API_INVALID_CREDENTIAL_MESSAGE);
             }
         })
         .catch(err=>{
