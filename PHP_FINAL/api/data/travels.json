@@ -1,135 +1,161 @@
 [{
-    "_id": {
-      "$oid": "6459a6f2d91253fbeb66b5cb"
-    },
-    "location": {
-      "name": "Sundarban",
-      "coordinates": [
-        88.28261,
-        25.05748
-      ]
-    },
-    "country": "Bangladesh",
-    "photos": [
-      {
-        "title": "photo1",
-        "url": "link1"
-      },
-      {
-        "title": "photo2",
-        "url": "link2"
-      }
-    ]
-  },{
-    "_id": {
-      "$oid": "6459a6f2d91253fbeb66b5cc"
-    },
-    "location": {
-      "name": "Cox's Bazar",
-      "coordinates": [
-        92.0167,
-        21.5833
-      ]
-    },
-    "country": "Bangladesh",
-    "photos": [
-      {
-        "title": "photo1",
-        "url": "link1"
-      },
-      {
-        "title": "photo2",
-        "url": "link2"
-      }
-    ]
-  },{
-    "_id": {
-      "$oid": "6459a6f2d91253fbeb66b5cd"
-    },
-    "location": {
-      "name": "Cox's Bazar",
-      "coordinates": [
-        92.293823,
-        23.381993
-      ]
-    },
-    "country": "Bangladesh",
-    "photos": [
-      {
-        "title": "photo1",
-        "url": "link1"
-      },
-      {
-        "title": "photo2",
-        "url": "link2"
-      },
-      {
-        "title": "photo3",
-        "url": "link3"
-      }
-    ]
-  },{
-    "_id": {
-      "$oid": "645db14d41ae6d6b5d65282f"
-    },
-    "location": {
-      "name": "another location",
-      "coordinates": [
-        88.123,
-        25.765
-      ],
-      "_id": {
-        "$oid": "645db14d41ae6d6b5d652830"
-      }
-    },
-    "country": "Bangladesh",
-    "photos": [
-      {
-        "title": "awoesome photo title",
-        "url": "new url",
-        "_id": {
-          "$oid": "645db14d41ae6d6b5d652831"
-        }
-      },
-      {
-        "title": "photo tile 2",
-        "url": "abc",
-        "_id": {
-          "$oid": "645db14d41ae6d6b5d652832"
-        }
-      }
+  "_id": {
+    "$oid": "647162389c91ffc7378067b7"
+  },
+  "location": {
+    "name": "Sundarban",
+    "coordinates": [
+      88.28261,
+      25.05748
     ],
-    "__v": 0
-  },{
     "_id": {
-      "$oid": "645db1de05558086e642e563"
-    },
-    "location": {
-      "name": "another location",
-      "coordinates": [
-        88.123,
-        25.765
-      ],
+      "$oid": "647162389c91ffc7378067b8"
+    }
+  },
+  "country": "Bangladesh",
+  "photos": [
+    {
+      "title": "At first look",
+      "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSv8ukQ4rS_5rYK0edduekiMJQRufLJFJU0UA&usqp=CAU",
       "_id": {
-        "$oid": "645db1de05558086e642e564"
+        "$oid": "647162389c91ffc7378067b9"
       }
     },
-    "country": "Bangladesh",
-    "photos": [
-      {
-        "title": "awoesome photo title",
-        "url": "new url",
-        "_id": {
-          "$oid": "645db1de05558086e642e565"
-        }
-      },
-      {
-        "title": "photo tile 2",
-        "url": "abc",
-        "_id": {
-          "$oid": "645db1de05558086e642e566"
-        }
+    {
+      "title": "Wonderful",
+      "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQljWWNZc9sY4UxM8vDCuT0AJTIFYHe3fcqJA&usqp=CAU",
+      "_id": {
+        "$oid": "647162389c91ffc7378067ba"
       }
+    }
+  ],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6471634a9c91ffc7378067bc"
+  },
+  "location": {
+    "name": "Cox's Bazar",
+    "coordinates": [
+      92.007732,
+      21.439464
     ],
-    "__v": 0
-  }]
+    "_id": {
+      "$oid": "6471634a9c91ffc7378067bd"
+    }
+  },
+  "country": "Bangladesh",
+  "photos": [
+    {
+      "title": "Morning view",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Cox%27s_Bazaar_Sunset_Sep2019.jpg/800px-Cox%27s_Bazaar_Sunset_Sep2019.jpg",
+      "_id": {
+        "$oid": "6471634a9c91ffc7378067be"
+      }
+    },
+    {
+      "title": "My favourite",
+      "url": "https://images.unsplash.com/photo-1590603740183-980e7f6920eb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y294JTIwYmF6YXJ8ZW58MHx8MHx8fDA%3D&w=1000&q=80",
+      "_id": {
+        "$oid": "6471634a9c91ffc7378067bf"
+      }
+    }
+  ],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "647163ff9c91ffc7378067c1"
+  },
+  "location": {
+    "name": "Bandarban",
+    "coordinates": [
+      92.2166667,
+      22.2
+    ],
+    "_id": {
+      "$oid": "647163ff9c91ffc7378067c2"
+    }
+  },
+  "country": "Bangladesh",
+  "photos": [
+    {
+      "title": "First visit",
+      "url": "https://live.staticflickr.com/5547/11122916656_77d67925e3_b.jpg",
+      "_id": {
+        "$oid": "647163ff9c91ffc7378067c3"
+      }
+    },
+    {
+      "title": "In the afternoon",
+      "url": "https://sgp1.digitaloceanspaces.com/cosmosgroup-dc/news/fRpu7V0HrMymv4FUw3zNukBxqEwXp7JkpXWnQX3x.jpeg",
+      "_id": {
+        "$oid": "647163ff9c91ffc7378067c4"
+      }
+    }
+  ],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "647164829c91ffc7378067c6"
+  },
+  "location": {
+    "name": "Dhaka",
+    "coordinates": [
+      90.399452,
+      23.777176
+    ],
+    "_id": {
+      "$oid": "647164829c91ffc7378067c7"
+    }
+  },
+  "country": "Bangladesh",
+  "photos": [
+    {
+      "title": "The beauty",
+      "url": "https://www.arabnews.com/sites/default/files/styles/n_670_395/public/2023/04/08/3763811-1580549544.jpg?itok=wM3o1uyH",
+      "_id": {
+        "$oid": "647164829c91ffc7378067c8"
+      }
+    },
+    {
+      "title": "The crowd",
+      "url": "https://i.unu.edu/media/ourworld.unu.edu-en/article/10771/Sick-Cities-A-Scenario-for-Dhaka-City.jpg",
+      "_id": {
+        "$oid": "647164829c91ffc7378067c9"
+      }
+    }
+  ],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "647165039c91ffc7378067cb"
+  },
+  "location": {
+    "name": "Sylhet",
+    "coordinates": [
+      91.880722,
+      24.886436
+    ],
+    "_id": {
+      "$oid": "647165039c91ffc7378067cc"
+    }
+  },
+  "country": "Bangladesh",
+  "photos": [
+    {
+      "title": "Next visit",
+      "url": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0d/70/25/28/pangthumai-waterfall.jpg?w=1200&h=1200&s=1",
+      "_id": {
+        "$oid": "647165039c91ffc7378067cd"
+      }
+    },
+    {
+      "title": "Nature",
+      "url": "https://www.bproperty.com/blog/wp-content/uploads/Tea-2.jpg",
+      "_id": {
+        "$oid": "647165039c91ffc7378067ce"
+      }
+    }
+  ],
+  "__v": 0
+}]
